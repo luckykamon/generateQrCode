@@ -29,16 +29,16 @@ public class Create_QR {
         String nomExtension = ".png";
         String cheminImgUse = "/Users/lucas/Desktop/personal_projects.nosync/generateQrCode/img/input/logo_CAP_2023_v2_rogner_transparent.png";
 
-//        creationQrCode(numberFichier(chemin, nomFichier, nomExtension), "QrCode d'exemple", 300, 300);
+        creationQrCode(numberFichier(chemin, nomFichier, nomExtension), "QrCode d'exemple", 300, 300);
 //        creationQrCodeAvecImageCenter(numberFichier(chemin, nomFichier, nomExtension), "QrCode d'exemple avec image", cheminImgUse);
 
-        creationQrCodeAvecImageCenter(numberFichier(chemin, nomFichier, nomExtension), "courir-a-plusieurs.site/etape_0", cheminImgUse);
-        creationQrCodeAvecImageCenter(numberFichier(chemin, nomFichier, nomExtension), "courir-a-plusieurs.site/LYUpKr6Jwp5J", cheminImgUse);
-        creationQrCodeAvecImageCenter(numberFichier(chemin, nomFichier, nomExtension), "courir-a-plusieurs.site/MFCJd5deG2LZ", cheminImgUse);
-        creationQrCodeAvecImageCenter(numberFichier(chemin, nomFichier, nomExtension), "courir-a-plusieurs.site/PLb8tfxH6Ngj", cheminImgUse);
-        creationQrCodeAvecImageCenter(numberFichier(chemin, nomFichier, nomExtension), "courir-a-plusieurs.site/4HIQ7L8B1Ppx", cheminImgUse);
-        creationQrCodeAvecImageCenter(numberFichier(chemin, nomFichier, nomExtension), "courir-a-plusieurs.site/DcB423kQ8MW2", cheminImgUse);
-        creationQrCodeAvecImageCenter(numberFichier(chemin, nomFichier, nomExtension), "courir-a-plusieurs.site/Z2pkN69lkPTC", cheminImgUse);
+//        creationQrCodeAvecImageCenter(numberFichier(chemin, nomFichier, nomExtension), "courir-a-plusieurs.site/etape_0", cheminImgUse);
+//        creationQrCodeAvecImageCenter(numberFichier(chemin, nomFichier, nomExtension), "courir-a-plusieurs.site/LYUpKr6Jwp5J", cheminImgUse);
+//        creationQrCodeAvecImageCenter(numberFichier(chemin, nomFichier, nomExtension), "courir-a-plusieurs.site/MFCJd5deG2LZ", cheminImgUse);
+//        creationQrCodeAvecImageCenter(numberFichier(chemin, nomFichier, nomExtension), "courir-a-plusieurs.site/PLb8tfxH6Ngj", cheminImgUse);
+//        creationQrCodeAvecImageCenter(numberFichier(chemin, nomFichier, nomExtension), "courir-a-plusieurs.site/4HIQ7L8B1Ppx", cheminImgUse);
+//        creationQrCodeAvecImageCenter(numberFichier(chemin, nomFichier, nomExtension), "courir-a-plusieurs.site/DcB423kQ8MW2", cheminImgUse);
+//        creationQrCodeAvecImageCenter(numberFichier(chemin, nomFichier, nomExtension), "courir-a-plusieurs.site/Z2pkN69lkPTC", cheminImgUse);
 //        creationQrCodeAvecImageCenter(numberFichier(chemin, nomFichier, nomExtension), "courir-a-plusieurs.site/lB3JBiZ1Q8Pc", cheminImgUse);
 //        creationQrCodeAvecImageCenter(numberFichier(chemin, nomFichier, nomExtension), "courir-a-plusieurs.site/p8KDBcYKZq1d", cheminImgUse);
 //        creationQrCodeAvecImageCenter(numberFichier(chemin, nomFichier, nomExtension), "courir-a-plusieurs.site/Nl6z6sfAU4qW", cheminImgUse);
