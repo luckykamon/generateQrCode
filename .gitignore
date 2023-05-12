@@ -3,3 +3,6 @@ generateQrCode.iml
 out/*
 img/input/*
 img/output/*
+zxing-3.5.1.zip
+zxing-zxing-3.5.1/*
+librairies/*
