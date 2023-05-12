@@ -1,11 +1,11 @@
-package com.chillyfacts.com;
+package main.java.com.lucasbodin.generateQrCode;
 
-import static com.chillyfacts.com.Create_QR.*;
+import static main.java.com.lucasbodin.generateQrCode.Create_QR.*;
 
 public class exemple {
     public static void main(String[] args) {
         String chemin = "./img/output/";
-        String nomFichier = "qr_code_2023_etape_";
+        String nomFichier = "qr_code_exemple_";
         String nomExtension = ".png";
         String cheminImgUse = "./img/input/logo_CAP_2023_v2_rogner_transparent.png";
 

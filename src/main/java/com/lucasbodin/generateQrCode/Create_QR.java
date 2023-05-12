@@ -1,11 +1,4 @@
-package com.chillyfacts.com;
-
-import java.awt.*;
-import java.awt.image.ColorConvertOp;
-import java.io.File;
-import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
+package main.java.com.lucasbodin.generateQrCode;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
@@ -14,9 +7,14 @@ import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
-
-import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.ColorConvertOp;
+import java.io.File;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
 
 import static java.awt.Color.black;
 
