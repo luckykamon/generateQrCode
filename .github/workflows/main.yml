@@ -37,5 +37,5 @@ jobs:
           password: ${{ secrets.PASSWORD_LWS_SERVER }}
           script: |
             cd /srv/generateQrCode
-            pm2 delete generateQrCode
-            pm2 start --name generateQrCode mvn -- spring-boot:run
+            mvn clean install
+            java -jar target/generateQrCode-0.0.1-SNAPSHOT.jar
