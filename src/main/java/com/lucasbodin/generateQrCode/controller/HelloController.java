@@ -25,7 +25,7 @@ public class HelloController {
             System.out.println("Génération de QrCode d'exemple echoué");
             System.err.println(e.getMessage());
         }
-        return "Hello, World! v3";
+        return "Hello, World! v4";
     }
 }
 
