@@ -8,9 +8,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -22,7 +19,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import static main.java.com.lucasbodin.generateQrCode.Create_QR.*;
-import static main.java.com.lucasbodin.generateQrCode.Create_QR.numberFichier;
 
 
 @RestController

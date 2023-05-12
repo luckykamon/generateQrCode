@@ -1,7 +1,9 @@
 package main.java.com.lucasbodin.generateQrCode;
 
 import java.util.Arrays;
-import static main.java.com.lucasbodin.generateQrCode.Create_QR.*;
+
+import static main.java.com.lucasbodin.generateQrCode.Create_QR.creationQrCodeAvecImageCenter;
+import static main.java.com.lucasbodin.generateQrCode.Create_QR.numberFichier;
 
 public class main {
 
