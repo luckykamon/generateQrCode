@@ -39,4 +39,3 @@ jobs:
             cd /srv/generateQrCode
             pm2 delete generateQrCode
             pm2 start --name generateQrCode mvn -- spring-boot:run
-
