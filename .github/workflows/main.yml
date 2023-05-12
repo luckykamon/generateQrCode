@@ -38,4 +38,4 @@ jobs:
           script: |
             cd /srv/generateQrCode
             mvn clean install
-            java -jar target/generateQrCode-0.0.1-SNAPSHOT.jar
+            nohup java -jar target/generateQrCode-0.0.1-SNAPSHOT.jar
