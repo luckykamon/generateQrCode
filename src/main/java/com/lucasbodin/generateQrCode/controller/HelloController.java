@@ -16,7 +16,7 @@ public class HelloController {
     public String hello(@RequestBody String body) {
         System.out.println("Request Body: " + body);
         String chemin = "./img/output/";
-        String nomFichier = body;
+        String nomFichier = "generateQrCode_";
         String nomExtension = ".png";
 
         try {
