@@ -17,6 +17,7 @@ jobs:
       - name: Setup Maven environment
         uses: actions/setup-java@v2
         with:
+          distribution: 'oracle'
           java-version: '17'
           maven-version: '3.9.1'
 
