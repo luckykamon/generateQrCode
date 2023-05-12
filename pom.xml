@@ -8,7 +8,7 @@
         <version>3.0.6</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.lucasbodin</groupId>
+    <groupId>main.java.com.lucasbodin</groupId>
     <artifactId>generateQrCode</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>generateQrCode</name>
@@ -27,6 +27,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <dependency>
@@ -49,7 +54,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.lucasbodin.generateQrCode.MainClass</mainClass>
+                    <mainClass>main.java.com.lucasbodin.generateQrCode.GenerateQrCodeApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>
