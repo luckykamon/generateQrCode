@@ -1,6 +1,7 @@
 .idea/*
 generateQrCode.iml
 out/*
+target/*
 img/input/*
 img/output/*
 zxing-3.5.1.zip
