@@ -1,0 +1,41 @@
+name: Deploy Spring-boot app to server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Maven environment
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          maven-version: '3.9.1'
+
+      - name: Copy files to Server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST_LWS_SERVER }}
+          username: ${{ secrets.USERNAME_LWS_SERVER }}
+          password: ${{ secrets.PASSWORD_LWS_SERVER }}
+          source: "."
+          target: "/srv/generateQrCode"
+
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_LWS_SERVER }}
+          username: ${{ secrets.USERNAME_LWS_SERVER }}
+          password: ${{ secrets.PASSWORD_LWS_SERVER }}
+          script: |
+            cd /srv/generateQrCode
+            pm2 delete generateQrCode
+            pm2 start --name generateQrCode mvn -- spring-boot:run

@@ -6,5 +6,5 @@ img/input/*
 img/output/*
 zxing-3.5.1.zip
 zxing-zxing-3.5.1/*
-librairies/*
+lib/*
 src/com/chillyfacts/com/main.java
