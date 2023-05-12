@@ -1,8 +1,5 @@
 package com.chillyfacts.com;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 import static com.chillyfacts.com.Create_QR.*;
 
 public class exemple {
@@ -12,8 +9,17 @@ public class exemple {
         String nomExtension = ".png";
         String cheminImgUse = "./img/input/logo_CAP_2023_v2_rogner_transparent.png";
 
-        creationQrCode(numberFichier(chemin, nomFichier, nomExtension), "QrCode d'exemple", 300, 300);
-        creationQrCodeAvecImageCenter(numberFichier(chemin, nomFichier, nomExtension), "courir-a-plusieurs.site/etape_0", cheminImgUse);
-
+        try {
+            System.out.println(creationQrCode(numberFichier(chemin, nomFichier, nomExtension), "QrCode d'exemple", 300, 300) + " réussi");
+        } catch (Exception e) {
+            System.out.println("Génération de QrCode d'exemple echoué");
+            System.err.println(e.getMessage());
+        }
+        try {
+            System.out.println(creationQrCodeAvecImageCenter(numberFichier(chemin, nomFichier, nomExtension), "courir-a-plusieurs.site/etape_0", cheminImgUse)+ " réussi");
+        } catch (Exception e) {
+            System.out.println("Génération de courir-a-plusieurs.site/etape_0 echoué");
+            System.err.println(e.getMessage());
+        }
     }
 }
