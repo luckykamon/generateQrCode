@@ -61,6 +61,38 @@ public class Create_QR {
         return filePath;
     }
 
+    public static BufferedImage resizeImage(BufferedImage originalImage, int maxWidth, int maxHeight) {
+        int originalWidth = originalImage.getWidth();
+        int originalHeight = originalImage.getHeight();
+
+        // Calculer les nouvelles dimensions proportionnelles
+        int newWidth = originalWidth;
+        int newHeight = originalHeight;
+
+        if (originalWidth > maxWidth || originalHeight > maxHeight) {
+            double aspectRatio = (double) originalWidth / originalHeight;
+
+            if (aspectRatio > 1) {
+                newWidth = maxWidth;
+                newHeight = (int) (newWidth / aspectRatio);
+            } else {
+                newHeight = maxHeight;
+                newWidth = (int) (newHeight * aspectRatio);
+            }
+        }
+
+        // Créer une nouvelle image BufferedImage avec les nouvelles dimensions
+        BufferedImage resizedImage = new BufferedImage(newWidth, newHeight, originalImage.getType());
+        Graphics2D graphics = resizedImage.createGraphics();
+
+        // Redimensionner l'image en utilisant la méthode de dessin avec interpolation
+        graphics.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        graphics.drawImage(originalImage, 0, 0, newWidth, newHeight, null);
+        graphics.dispose();
+
+        return resizedImage;
+    }
+
     /**
      * Crée un QrCode contenant qrCodeData en insérant une image et crée une image au format png
      *
@@ -69,12 +101,14 @@ public class Create_QR {
      * @param chemin_img Adresse de l'image à insérer dans le QrCode
      */
     public static String creationQrCodeAvecImageCenter(String filePath, String qrCodeData, String chemin_img, String colorString) throws Exception {
-        BufferedImage myPicture = ImageIO.read(new File(chemin_img)); //image a insérer
+        BufferedImage myPicture = resizeImage(ImageIO.read(new File(chemin_img)), 300, 300); //image a insérer
+
         int width = (myPicture.getWidth() + myPicture.getHeight()) * 2;
         int height = (myPicture.getWidth() + myPicture.getHeight()) * 2;
 
         //Création du QrCode
         creationQrCode(filePath, qrCodeData, width, height);
+        System.out.println("width : " + width + " height : " + height);
 
         //Ajout de l'image dans le QrCode
         File qrCodeFile = new File(filePath);
