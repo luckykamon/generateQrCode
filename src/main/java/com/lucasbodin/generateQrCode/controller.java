@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,14 +20,15 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import static main.java.com.lucasbodin.generateQrCode.Create_QR.*;
-
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 @RestController
 public class controller {
 
     @GetMapping("/")
-    public String index() {
-        return "Documentation can be found here: <a href=\"https://documenter.getpostman.com/view/12914728/2s93ecwAaw\" target=\"blank\">https://documenter.getpostman.com/view/12914728/2s93ecwAaw</a>";
+    public ModelAndView index() {
+        ModelAndView modelAndView = new ModelAndView("index"); // Nom du fichier HTML sans l'extension
+        return modelAndView;
+//        return "Documentation can be found here: <a href=\"https://documenter.getpostman.com/view/12914728/2s93ecwAaw\" target=\"blank\">https://documenter.getpostman.com/view/12914728/2s93ecwAaw</a>";
     }
 
     @PostMapping("/qrcode")
