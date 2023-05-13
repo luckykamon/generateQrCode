@@ -52,7 +52,7 @@ public class controller {
     }
 
     @PostMapping("/uploadQrCode")
-    public String uploadQrCode(@RequestParam("text") String text, @RequestParam("file") MultipartFile file) {
+    public String uploadQrCode(@RequestParam("text") String text, @RequestParam("file") MultipartFile file, @RequestParam(value = "color", required = false, defaultValue = "#000000") String color) {
         String chemin = "./img/input/";
         String nomFichier = "uploadedQrCode_";
         String nomExtension = ".png";
@@ -68,7 +68,7 @@ public class controller {
             String cheminQrCode = numberFichier("./img/output/", "generateQrCode_", ".png");
 
             try {
-                System.out.println(creationQrCodeAvecImageCenter(cheminQrCode, text, cheminFichier) + " réussi");
+                System.out.println(creationQrCodeAvecImageCenter(cheminQrCode, text, cheminFichier, color) + " réussi");
             } catch (Exception e) {
                 System.out.println("Génération de " + cheminQrCode + " echoué");
                 System.err.println(e.getMessage());

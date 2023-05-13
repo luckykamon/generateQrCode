@@ -15,6 +15,7 @@ import java.io.File;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import static java.awt.Color.black;
 
@@ -67,7 +68,7 @@ public class Create_QR {
      * @param qrCodeData Texte que renverra le Qrcode une fois scanné
      * @param chemin_img Adresse de l'image à insérer dans le QrCode
      */
-    public static String creationQrCodeAvecImageCenter(String filePath, String qrCodeData, String chemin_img) throws Exception {
+    public static String creationQrCodeAvecImageCenter(String filePath, String qrCodeData, String chemin_img, String colorString) throws Exception {
         BufferedImage myPicture = ImageIO.read(new File(chemin_img)); //image a insérer
         int width = (myPicture.getWidth() + myPicture.getHeight()) * 2;
         int height = (myPicture.getWidth() + myPicture.getHeight()) * 2;
@@ -82,12 +83,12 @@ public class Create_QR {
         BufferedImage qrCode = new BufferedImage(qrCodeGray.getWidth(), qrCodeGray.getHeight(), BufferedImage.TYPE_INT_RGB); // créer une nouvelle image en couleur
         op.filter(qrCodeGray, qrCode);
         int rgb;
-        Color pink_logo_cap = Color.decode("#DAA1CA"); // new color
+        Color personaliseColor = Color.decode(colorString); // new color
         for (int y = 0; y < qrCode.getHeight(); y++) {
             for (int x = 0; x < qrCode.getWidth(); x++) {
                 rgb = qrCode.getRGB(x, y);
                 if (new Color(rgb).equals(black)) {
-                    qrCode.setRGB(x, y, pink_logo_cap.getRGB());
+                    qrCode.setRGB(x, y, personaliseColor.getRGB());
                 }
             }
         }
@@ -105,6 +106,10 @@ public class Create_QR {
         ImageIO.write(qrCode, "png", new File(filePath));
 
         return filePath;
+    }
+
+    public static String creationQrCodeAvecImageCenter(String filePath, String qrCodeData, String chemin_img) throws Exception {
+        return creationQrCodeAvecImageCenter(filePath, qrCodeData, chemin_img, "#000000");
     }
 
 }
