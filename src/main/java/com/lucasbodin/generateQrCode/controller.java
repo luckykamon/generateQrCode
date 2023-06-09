@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @RestController
 public class controller {
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/")
     public ModelAndView index() {
         ModelAndView modelAndView = new ModelAndView("index"); // Nom du fichier HTML sans l'extension
@@ -31,6 +32,7 @@ public class controller {
 //        return "Documentation can be found here: <a href=\"https://documenter.getpostman.com/view/12914728/2s93ecwAaw\" target=\"blank\">https://documenter.getpostman.com/view/12914728/2s93ecwAaw</a>";
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping("/qrcode")
     public String qrcode(@RequestBody BodyQrCode body) {
         String bodyText = body.text;
@@ -51,6 +53,7 @@ public class controller {
         }
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping("/uploadQrCode")
     public String uploadQrCode(@RequestParam("text") String text, @RequestParam("file") MultipartFile file, @RequestParam(value = "color", required = false, defaultValue = "#000000") String color) {
         String chemin = "./img/input/";
@@ -83,6 +86,7 @@ public class controller {
         }
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/getQrCode/{name}.png")
     public ResponseEntity<byte[]> getQrCode(@PathVariable("name") String name) throws IOException {
         String imagePath = "./img/output/" + name + ".png";
