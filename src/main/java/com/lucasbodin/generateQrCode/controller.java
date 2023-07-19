@@ -20,15 +20,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import static main.java.com.lucasbodin.generateQrCode.Create_QR.*;
-import org.springframework.web.bind.annotation.CrossOrigin;
+
 @RestController
 public class controller {
 
     @CrossOrigin(origins = "*")
     @GetMapping("/")
     public ModelAndView index() {
-        ModelAndView modelAndView = new ModelAndView("index"); // Nom du fichier HTML sans l'extension
-        return modelAndView;
+        return new ModelAndView("index"); // Nom du fichier HTML sans l'extension
 //        return "Documentation can be found here: <a href=\"https://documenter.getpostman.com/view/12914728/2s93ecwAaw\" target=\"blank\">https://documenter.getpostman.com/view/12914728/2s93ecwAaw</a>";
     }
 
@@ -38,7 +37,7 @@ public class controller {
         String bodyText = body.text;
 
         String chemin = "./img/output/";
-        String nomFichier = "generateQrCode_";
+        String nomFichier = "generateQrCode_" + generateRandomString();
         String nomExtension = ".png";
 
         String cheminFichier = numberFichier(chemin, nomFichier, nomExtension);
@@ -57,7 +56,7 @@ public class controller {
     @PostMapping("/uploadQrCode")
     public String uploadQrCode(@RequestParam("text") String text, @RequestParam("file") MultipartFile file, @RequestParam(value = "color", required = false, defaultValue = "#000000") String color) {
         String chemin = "./img/input/";
-        String nomFichier = "uploadedQrCode_";
+        String nomFichier = "uploadedQrCode_" + generateRandomString();
         String nomExtension = ".png";
 
         try {

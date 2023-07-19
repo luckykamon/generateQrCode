@@ -15,12 +15,26 @@ import java.io.File;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
+import java.util.Random;
 
 import static java.awt.Color.black;
 
 
 public class Create_QR {
+
+    public static String generateRandomString() {
+        int length = (new Random()).nextInt(6) + 20;
+        String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        Random random = new Random();
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (int i = 0; i < length; i++) {
+            int randomIndex = random.nextInt(characters.length());
+            stringBuilder.append(characters.charAt(randomIndex));
+        }
+
+        return stringBuilder.toString();
+    }
 
     /**
      * Génère un chemin de fichier unique en ajoutant un numéro à la fin du nom du fichier.
