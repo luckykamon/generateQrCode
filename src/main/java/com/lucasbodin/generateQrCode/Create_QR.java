@@ -22,8 +22,8 @@ import static java.awt.Color.black;
 
 public class Create_QR {
 
-    public static String generateRandomString() {
-        int length = (new Random()).nextInt(6) + 20;
+    public static String generateRandomString(int min, int max) {
+        int length = (new Random()).nextInt(max - min + 1) + min;
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         Random random = new Random();
         StringBuilder stringBuilder = new StringBuilder();
@@ -46,13 +46,13 @@ public class Create_QR {
      * @return Le chemin complet du nouveau fichier avec le numéro ajouté à la fin du nom du fichier.
      */
     public static String numberFichier(String chemin, String nomFichier, String nomExtension) {
-        int number = 0;
-        String url = chemin + nomFichier + number + nomExtension;
+        String number = generateRandomString(1,3);
+        String url = chemin + nomFichier + nomExtension;
         File f = new File(url);
         while (f.exists() && !f.isDirectory()) {
-            number++;
             url = chemin + nomFichier + number + nomExtension;
             f = new File(url);
+            number = generateRandomString(1,3);
         }
         return url;
     }

@@ -37,7 +37,7 @@ public class controller {
         String bodyText = body.text;
 
         String chemin = "./img/output/";
-        String nomFichier = "generateQrCode_" + generateRandomString();
+        String nomFichier = "generateQrCode_" + generateRandomString(20, 25);
         String nomExtension = ".png";
 
         String cheminFichier = numberFichier(chemin, nomFichier, nomExtension);
@@ -56,7 +56,7 @@ public class controller {
     @PostMapping("/uploadQrCode")
     public String uploadQrCode(@RequestParam("text") String text, @RequestParam("file") MultipartFile file, @RequestParam(value = "color", required = false, defaultValue = "#000000") String color) {
         String chemin = "./img/input/";
-        String nomFichier = "uploadedQrCode_" + generateRandomString();
+        String nomFichier = "uploadedQrCode_" + generateRandomString(20,25);
         String nomExtension = ".png";
 
         try {
@@ -67,7 +67,7 @@ public class controller {
             Path path = Paths.get(cheminFichier);
             Files.write(path, bytes);
 
-            String cheminQrCode = numberFichier("./img/output/", "generateQrCode_", ".png");
+            String cheminQrCode = numberFichier("./img/output/", nomFichier, ".png");
 
             try {
                 System.out.println(creationQrCodeAvecImageCenter(cheminQrCode, text, cheminFichier, color) + " réussi");
