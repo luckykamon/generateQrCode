@@ -37,4 +37,4 @@ jobs:
             cd /srv/generateQrCode
             mvn clean install
             PID=$(lsof -t -i :4020) && if [ -n "$PID" ]; then kill $PID; fi
-            nohup java -jar target/generateQrCode-2.0.0.jar > output.log 2>&1 &
+            nohup java -jar target/$(ls target | grep ".jar$" | head -n1) > output.log 2>&1 &

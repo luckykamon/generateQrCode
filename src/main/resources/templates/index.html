@@ -1,84 +1,143 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Generate QrCode</title>
 </head>
-<body style="text-align: center">
-<p id="documentationApi">Documentation of API can be found here: <a href="https://documenter.getpostman.com/view/12914728/2s93ecwAaw"
-                                              target="blank">https://documenter.getpostman.com/view/12914728/2s93ecwAaw</a>
-</p>
-<input type="text" id="inputField"> <input type="file" id="inputFile">
-<input type="color" id="colorPicker">
-<button onclick="sendRequest()">Envoyer</button>
-<img id="qrCodeImage" onclick="printImage()" src="" style="max-height: 100vh; max-width: 100%; margin: auto">
 
-<script>
-    function printImage() {
-        var qrCodeImage = document.getElementById("qrCodeImage");
-        var printWindow = window.open('', '_blank');
-        var htmlContent = '<html><head><title>Print Image</title></head><body>' + qrCodeImage.outerHTML + '</body></html>';
-        printWindow.document.write(htmlContent);
-        printWindow.document.close();
-        printWindow.print();
-    }
+<body>
+    <p id="documentationApi">Documentation of API can be found here: <a
+            href="https://documenter.getpostman.com/view/12914728/2s93ecwAaw"
+            target="blank">https://documenter.getpostman.com/view/12914728/2s93ecwAaw</a>
+    </p>
+    <div>
+        <input type="text" id="inputField" onchange="clearResult()">
+        <input type="file" id="inputFile" onchange="clearResult()">
+        <input type="color" id="colorPicker" onchange="clearResult()">
+        <button onclick="sendRequest()">Générer</button>
+    </div>
+    <div>
+        <img id="qrCodeImage" onclick="printImage()" src="" style="max-height: 100vh; max-width: 100%; margin: auto">
+        <div id="loader"></div>
+    </div>
 
-    function changeImageQrCode(name) {
-        var qrCodeImage = document.getElementById("qrCodeImage");
-        qrCodeImage.src = "/getQrCode/" + name;
-        qrCodeImage.style.display = "block";
-    }
-
-    function sendRequest() {
-        var inputHtml = document.getElementById("inputField").value;
-
-        if (document.getElementById("inputFile").value == "") {
-            var myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/json");
-
-            var raw = JSON.stringify({
-                "text": inputHtml
-            });
-
-            var requestOptions = {
-                method: 'POST',
-                headers: myHeaders,
-                body: raw,
-                redirect: 'follow'
-            };
-
-            fetch("/qrcode", requestOptions)
-                .then(response => response.text())
-                .then(result => {
-                    changeImageQrCode(result)
-                })
-                .catch(error => console.log('error', error));
-        } else {
-            var inputFile = document.getElementById("inputFile");
-            var file = inputFile.files[0];
-            var color = document.getElementById("colorPicker").value;
-
-            var formdata = new FormData();
-            formdata.append("text", inputHtml);
-            formdata.append("file", file, file.name);
-            formdata.append("color", color);
-
-            var requestOptions = {
-                method: 'POST',
-                body: formdata,
-                redirect: 'follow'
-            };
-
-            fetch("/uploadQrCode", requestOptions)
-                .then(response => response.text())
-                .then(result => {
-                    changeImageQrCode(result)
-                })
-                .catch(error => console.log('error', error));
+    <script>
+        function printImage() {
+            let qrCodeImage = document.getElementById("qrCodeImage");
+            let printWindow = window.open('', '_blank');
+            let htmlContent = '<html><head><title>Print Image</title></head><body>' + qrCodeImage.outerHTML + '</body></html>';
+            printWindow.document.write(htmlContent);
+            printWindow.document.close();
+            printWindow.print();
         }
 
-    }
-</script>
+        function clearResult() {
+            let loader = document.getElementById("loader");
+            let qrCodeImage = document.getElementById("qrCodeImage");
+            loader.style.display = "none";
+            qrCodeImage.style.display = "none";
+        }
+
+        function changeImageQrCode(name) {
+            let loader = document.getElementById("loader");
+            let qrCodeImage = document.getElementById("qrCodeImage");
+            if (!name) {
+                loader.style.display = "block";
+                qrCodeImage.style.display = "none";
+            } else {
+                qrCodeImage.src = "/getQrCode/" + name;
+                loader.style.display = "none";
+                qrCodeImage.style.display = "block";
+            }
+        }
+
+        function sendRequest() {
+            changeImageQrCode(null);
+            let inputHtml = document.getElementById("inputField").value;
+
+            if (document.getElementById("inputFile").value == "") {
+                let myHeaders = new Headers();
+                myHeaders.append("Content-Type", "application/json");
+
+                let raw = JSON.stringify({
+                    "text": inputHtml
+                });
+
+                let requestOptions = {
+                    method: 'POST',
+                    headers: myHeaders,
+                    body: raw,
+                    redirect: 'follow'
+                };
+
+                fetch("/qrcode", requestOptions)
+                    .then(response => response.text())
+                    .then(result => {
+                        changeImageQrCode(result)
+                    })
+                    .catch(error => console.log('error', error));
+            } else {
+                let inputFile = document.getElementById("inputFile");
+                let file = inputFile.files[0];
+                let color = document.getElementById("colorPicker").value;
+
+                let formdata = new FormData();
+                formdata.append("text", inputHtml);
+                formdata.append("file", file, file.name);
+                formdata.append("color", color);
+
+                let requestOptions = {
+                    method: 'POST',
+                    body: formdata,
+                    redirect: 'follow'
+                };
+
+                fetch("/uploadQrCode", requestOptions)
+                    .then(response => response.text())
+                    .then(result => {
+                        changeImageQrCode(result)
+                    })
+                    .catch(error => console.log('error', error));
+            }
+
+        }
+    </script>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        #loader {
+            border: 16px solid #f3f3f3;
+            border-top: 16px solid #3498db;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+            position: fixed;
+            left: 50%;
+            margin-top: 20px;
+            margin-left: -60px;
+            /* la moitié de la largeur de l'icône de chargement */
+            display: none;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
 </body>
 
 </html>

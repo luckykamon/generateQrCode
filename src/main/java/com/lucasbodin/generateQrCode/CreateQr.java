@@ -1,4 +1,4 @@
-package main.java.com.lucasbodin.generateQrCode;
+package com.lucasbodin.generateqrcode;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
@@ -20,7 +20,7 @@ import java.util.Random;
 import static java.awt.Color.black;
 
 
-public class Create_QR {
+public class CreateQr {
 
     public static String generateRandomString(int min, int max) {
         int length = (new Random()).nextInt(max - min + 1) + min;

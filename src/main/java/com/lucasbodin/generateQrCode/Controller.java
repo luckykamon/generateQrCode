@@ -1,7 +1,5 @@
-package main.java.com.lucasbodin.generateQrCode;
+package com.lucasbodin.generateqrcode;
 
-
-import com.lucasbodin.generateQrCode.BodyQrCode;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -19,10 +17,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static main.java.com.lucasbodin.generateQrCode.Create_QR.*;
+import static com.lucasbodin.generateqrcode.CreateQr.*;
 
 @RestController
-public class controller {
+public class Controller {
 
     @CrossOrigin(origins = "*")
     @GetMapping("/")
