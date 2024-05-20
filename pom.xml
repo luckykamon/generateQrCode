@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.lucasbodin</groupId>
-    <artifactId>generateQrCode</artifactId>
+    <artifactId>generate-qr-code</artifactId>
     <version>2.0.0</version>
-    <name>generateQrCode</name>
+    <name>Generate QR Codes</name>
     <description>Permet de générer des QrCodes à partir d&apos;un string et avec une image centrée si voulu
     </description>
     <properties>
@@ -87,7 +87,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.lucasbodin.generateQrCode.GenerateQrCodeApplication</mainClass>
+                    <mainClass>com.lucasbodin.generateqrcode.GenerateQrCodeApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

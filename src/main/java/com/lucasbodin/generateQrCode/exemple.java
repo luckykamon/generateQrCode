@@ -1,8 +1,8 @@
-package com.lucasbodin.generateQrCode;
+package com.lucasbodin.generateqrcode;
 
-import static com.lucasbodin.generateQrCode.Create_QR.*;
+import static com.lucasbodin.generateqrcode.CreateQr.*;
 
-public class exemple {
+public class Exemple {
     public static void main(String[] args) {
         String chemin = "./img/output/";
         String nomFichier = "qr_code_exemple_";

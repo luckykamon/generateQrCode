@@ -1,4 +1,4 @@
-package com.lucasbodin.generateQrCode;
+package com.lucasbodin.generateqrcode;
 
 public class BodyQrCode {
     public String text;
