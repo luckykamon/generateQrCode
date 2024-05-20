@@ -1,5 +1,6 @@
 # Execution du projet
 
+La commande suivante se charge toute seule de l'installation des dépendances
 ```bash
 mvn spring-boot:run
 ```
