@@ -1,6 +1,6 @@
-package main.java.com.lucasbodin.generateQrCode;
+package com.lucasbodin.generateQrCode;
 
-import static main.java.com.lucasbodin.generateQrCode.Create_QR.*;
+import static com.lucasbodin.generateQrCode.Create_QR.*;
 
 public class exemple {
     public static void main(String[] args) {

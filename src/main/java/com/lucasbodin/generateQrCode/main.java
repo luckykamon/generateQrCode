@@ -1,13 +1,13 @@
-package main.java.com.lucasbodin.generateQrCode;
+package com.lucasbodin.generateQrCode;
 
 import java.util.Arrays;
 
-import static main.java.com.lucasbodin.generateQrCode.Create_QR.creationQrCodeAvecImageCenter;
-import static main.java.com.lucasbodin.generateQrCode.Create_QR.numberFichier;
+import static com.lucasbodin.generateQrCode.Create_QR.creationQrCodeAvecImageCenter;
+import static com.lucasbodin.generateQrCode.Create_QR.numberFichier;
 
 public class main {
 
-    public static void main(String[] args) {
+    public static void Main(String[] args) {
         String chemin = "./img/output/";
         String nomFichier = "qr_code_2023_etape_";
         String nomExtension = ".png";

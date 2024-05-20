@@ -2,7 +2,7 @@
 
 La commande suivante se charge toute seule de l'installation des dépendances
 ```bash
-mvn spring-boot:run
+mvn clean spring-boot:run
 ```
 
 # Configuration de l'IDE

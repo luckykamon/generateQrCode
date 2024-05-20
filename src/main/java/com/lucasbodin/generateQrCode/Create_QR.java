@@ -1,4 +1,4 @@
-package main.java.com.lucasbodin.generateQrCode;
+package com.lucasbodin.generateQrCode;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;

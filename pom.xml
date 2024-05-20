@@ -8,7 +8,7 @@
         <version>3.2.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>main.java.com.lucasbodin</groupId>
+    <groupId>com.lucasbodin</groupId>
     <artifactId>generateQrCode</artifactId>
     <version>2.0.0</version>
     <name>generateQrCode</name>
@@ -87,7 +87,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>main.java.com.lucasbodin.generateQrCode.GenerateQrCodeApplication</mainClass>
+                    <mainClass>com.lucasbodin.generateQrCode.GenerateQrCodeApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>
